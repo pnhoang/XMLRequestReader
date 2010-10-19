@@ -1,0 +1,17 @@
+A small addition to the original XMLReader of Troybrant which can be found at: 
+troybrant.net/blog/2010/09/simple-xml-to-nsdictionary-converter/
+
+With XMLRequestReader, you can send the POST request to your server with parameters as a string.
+For example:
+
+NSError *error;
+NSDictionary *xmlDict = [XMLRequestReader dictionaryForRequest: @"GetOrderById"
+							requestURL: @"http://www.google.com/services/"
+							parametersString: [NSString stringWithFormat:@"OrderId=%@&Output=XML", 999]
+							error: &error];
+NSLog(@"xmlDict: %@", xmlDict);
+
+This method will send a POST request to the web service url: http://www.google.com/services/GetOrderById (I assume that the server will response correctly, you have to put your own URL here!)							
+The POST data will be OrderId=999&Output=XML, it's the same as sending a GET request with this URL: http://www.google.com/services/GetOrderById/?OrderId=999&Output=XML (if the server enable the GET request)
+The length is determined automatically based on the POST data.
+The "Content-Type" is "application/x-www-form-urlencoded"
