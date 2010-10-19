@@ -173,7 +173,7 @@ NSString *const kXMLReaderTextNodeKey = @"text";
 	//NSLog(@"foundCharacters: %@", string);
 	
 	//Build the text value
-	[textInProgress appendString:[string stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
+	[textInProgress appendString:[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
