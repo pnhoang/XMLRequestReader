@@ -7,7 +7,7 @@ For example:
 NSError *error;
 NSDictionary *xmlDict = [XMLRequestReader dictionaryForRequest: @"GetOrderById"
 							requestURL: @"http://www.google.com/services/"
-							parametersString: [NSString stringWithFormat:@"OrderId=%@&Output=XML", 999]
+							parametersString: [NSString stringWithFormat:@"OrderId=%d&Output=XML", 999]
 							error: &error];
 NSLog(@"xmlDict: %@", xmlDict);
 
